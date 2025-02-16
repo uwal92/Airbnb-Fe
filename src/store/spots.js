@@ -5,7 +5,7 @@ export const allSpots = (payload) => ({
   payload,
 });
 export const getAllSpots = () => async (dispatch) => {
-    const response = await fetch("/api/spots");
+    const response = await fetch("https://airbnb-api-docs.onrender.com/api/spots");
     if (response.ok) {
       const payload = await response.json();
       dispatch(allSpots(payload));
@@ -17,7 +17,7 @@ export const getAllSpots = () => async (dispatch) => {
     payload,
   });
   export const getSpotDetails = (spotId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/spots/${spotId}`);
+    const response = await csrfFetch(`https://airbnb-api-docs.onrender.com/api/spots/${spotId}`);
     if (response.ok) {
       const spot = await response.json();
       dispatch(spotDetails(spot));
@@ -30,7 +30,7 @@ export const getAllSpots = () => async (dispatch) => {
     payload: spots,
   });
   export const getUserSpots = () => async (dispatch) => {
-    const response = await csrfFetch("/api/spots/current");
+    const response = await csrfFetch("https://airbnb-api-docs.onrender.com/api/spots/current");
     if (response.ok) {
       const spots = await response.json();
       dispatch(userSpots(spots));
@@ -38,7 +38,7 @@ export const getAllSpots = () => async (dispatch) => {
   };
   
   export const addNewSpot = (spot, navigate) => async () => {
-    const response = await csrfFetch(`/api/spots`, {
+    const response = await csrfFetch(`https://airbnb-api-docs.onrender.com/api/spots`, {
       method: "POST",
       body: JSON.stringify(spot),
     });
@@ -57,7 +57,7 @@ export const getAllSpots = () => async (dispatch) => {
     image,
   });
   export const addSpotImage = (spotId, image) => async (dispatch) => {
-    const response = await csrfFetch(`/api/spots/${spotId}/images`, {
+    const response = await csrfFetch(`https://airbnb-api-docs.onrender.com/api/spots/${spotId}/images`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -77,7 +77,7 @@ export const getAllSpots = () => async (dispatch) => {
     payload: spot,
   });
   export const updateSpot = (spotId, spotInfo) => async (dispatch) => {
-    const response = await csrfFetch(`/api/spots/${spotId}`, {
+    const response = await csrfFetch(`https://airbnb-api-docs.onrender.com/api/spots/${spotId}`, {
       method: "PUT",
       headers: {},
       body: JSON.stringify(spotInfo),
@@ -96,7 +96,7 @@ export const getAllSpots = () => async (dispatch) => {
     spotId,
   });
   export const deleteSpot = (spotId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/spots/${spotId}`, {
+    const response = await csrfFetch(`https://airbnb-api-docs.onrender.com/api/spots/${spotId}`, {
       method: "DELETE",
     });
     if (response.ok) {
