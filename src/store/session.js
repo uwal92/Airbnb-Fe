@@ -13,8 +13,8 @@ const removeUser = () => ({
 });
 
 // Thunk action to log in user
-restoreCSRF();
 export const login = (credentials) => async (dispatch) => {
+  restoreCSRF();
   const response = await csrfFetch("https://airbnb-api-docs.onrender.com/api/session", {
     method: "POST",
     body: JSON.stringify(credentials),
