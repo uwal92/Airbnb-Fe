@@ -8,18 +8,6 @@ export async function csrfFetch(url, options = {}) {
     options.headers["Content-Type"] = options.headers['Content-Type'] || "application/json";
     options.headers["XSRF-Token"] = Cookies.get("XSRF-TOKEN");
   }
-  
-  //--------------------------------------------------------
-  const csrfToken = Cookies.get("XSRF-TOKEN");
-
-  // If the CSRF token is not available, fetch it
-  if (!csrfToken) {
-    console.log("CSRF token not found, fetching...");
-    await restoreCSRF();
-    // Retrieve the CSRF token again after restoring
-    options.headers["XSRF-Token"] = Cookies.get("XSRF-TOKEN");
-  }
-  //--------------------------------------------------------
 
   console.log("url", url, "options", options);
   const response = await window.fetch(url, options);

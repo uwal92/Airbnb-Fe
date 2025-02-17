@@ -10,12 +10,12 @@ import { Modal, ModalProvider } from './context/Modal.jsx'
 
 const store = configureStore();
 
-if (import.meta.env.MODE !== 'production') {
+//if (import.meta.env.MODE !== 'production') {
   restoreCSRF();
   window.csrfFetch = csrfFetch;
   window.store = store;
   window.sessionActions = sessionActions;
-}
+//}
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
