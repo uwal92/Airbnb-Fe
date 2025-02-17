@@ -6,7 +6,6 @@ export async function csrfFetch(url, options = {}) {
   options.headers = options.headers || {};
   options.method = options.method || "GET";
   options.credentials = "include";
-  options.headers.credentials = "include";
 
   if (options.method && options.method.toUpperCase() !== "GET") {
     options.headers["Content-Type"] = options.headers['Content-Type'] || "application/json";
