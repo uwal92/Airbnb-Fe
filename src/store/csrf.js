@@ -6,12 +6,12 @@ export async function csrfFetch(url, options = {}) {
   options.headers = options.headers || {};
   options.method = options.method || "GET";
   options.credentials = "include";
-
+  options.headers.credentials = "include";
 
   if (options.method && options.method.toUpperCase() !== "GET") {
     options.headers["Content-Type"] = options.headers['Content-Type'] || "application/json";
     options.headers["XSRF-Token"] = Cookies.get("_csrf");
-    console.log('  ---  cokies ---',Cookies.get())
+    console.log('  ---  cokies ---', Cookies.get())
   }
 
   console.log("url", url, "options", options);
