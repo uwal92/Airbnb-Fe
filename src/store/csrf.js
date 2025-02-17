@@ -5,11 +5,13 @@ let isFetchingCsrfToken = false; // Flag to prevent multiple fetch calls
 export async function csrfFetch(url, options = {}) {
   options.headers = options.headers || {};
   options.method = options.method || "GET";
+  options.credentials = "include";
+
   
   if (options.method && options.method.toUpperCase() !== "GET") {
     options.headers["Content-Type"] = options.headers['Content-Type'] || "application/json";
     options.headers["XSRF-Token"] = Cookies.get("XSRF-TOKEN");
-    console.log(Cookies.get("XSRF-TOKEN"))
+    console.log('  ---  cokies ---',Cookies.get("XSRF-TOKEN"))
   }
 
   console.log("url", url, "options", options);
