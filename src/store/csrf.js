@@ -14,6 +14,7 @@ export async function csrfFetch(url, options = {}) {
   }
 
   console.log("url", url, "options", options);
+  const response1 = await window.fetch("https://airbnb-api-docs.onrender.com/api", options);
   const response = await window.fetch(url, options);
 
   if (response.status >= 400) throw response;
