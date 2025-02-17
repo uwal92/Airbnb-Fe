@@ -12,6 +12,9 @@ export async function csrfFetch(url, options = {}) {
   }
 
   //--------------------------------------------------------
+  const csrfToken = Cookies.get("XSRF-TOKEN");
+  console.log("csrfToken", csrfToken);
+  
 // If the CSRF token is not available, fetch it
 if (!csrfToken && !isFetchingCsrfToken) {
   console.log("CSRF token not found, fetching...");
