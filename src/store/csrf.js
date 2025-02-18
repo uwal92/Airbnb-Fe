@@ -9,7 +9,7 @@ export async function csrfFetch(url, options = {}) {
 
   if (options.method && options.method.toUpperCase() !== "GET") {
     options.headers["Content-Type"] = options.headers['Content-Type'] || "application/json";
-    options.headers["XSRF-TOKEN"] = Cookies.get("XSRF-TOKEN");
+    options.headers["XSRF-TOKEN"] = Cookies.get("_csrf");
     console.log('  ---  cookies ---', Cookies.get())
   }
 
